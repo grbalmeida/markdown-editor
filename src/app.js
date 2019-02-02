@@ -2,10 +2,16 @@
 
 import React, { Component } from 'react'
 import marked from 'marked'
+import highlightjs from 'highlight.js'
 import MarkdownEditor from './components/markdown-editor'
 
-import 'normalize.css'
 import './css/style.css'
+
+marked.setOptions({
+  highlight: (code) => {
+    return highlightjs.highlightAuto(code).value
+  }
+})
 
 class App extends Component {
   constructor() {
