@@ -37,13 +37,20 @@ class App extends Component {
     }
 
     this.handleSave = () => {
-      localStorage.setItem('md', this.state.value)
-      this.setState({ isSaving: false })
+      if (this.state.isSaving) {
+        localStorage.setItem('md', this.state.value)
+        this.setState({ isSaving: false })
+      }
+    }
+
+    this.handleRemove = () => {
+      localStorage.removeItem('md')
+      this.setState({ value: '' })
     }
   }
 
   componentDidMount () {
-    const value = localStorage.getItem('md')
+    const value = localStorage.getItem('md') || ''
     this.setState({ value })
   }
 
@@ -62,6 +69,7 @@ class App extends Component {
         value={this.state.value}
         isSaving={this.state.isSaving}
         handleChange={this.handleChange}
+        handleRemove={this.handleRemove}
         getMarkup={this.getMarkup}
       />
     )
