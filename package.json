@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "yarn dev",
+    "start": "cross-env NODE_ENV=production node index.js",
     "dev": "webpack-dashboard -- node server.js",
     "test": "jest --coverage",
     "test:watch": "yarn test -- --watch",
@@ -21,7 +21,8 @@
   "standard": {
     "globals": [
       "it",
-      "expect"
+      "expect",
+      "localStorage"
     ]
   },
   "devDependencies": {
