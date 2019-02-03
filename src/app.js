@@ -2,19 +2,23 @@
 
 import React, { Component } from 'react'
 import marked from 'marked'
-import highlightjs from 'highlight.js'
 import MarkdownEditor from './components/markdown-editor'
 
 import './css/style.css'
 
-marked.setOptions({
-  highlight: (code) => {
-    return highlightjs.highlightAuto(code).value
-  }
+import('highlight.js').then((highlightjs) => {
+  marked.setOptions({
+    highlight: (code, lang) => {
+      if (lang && highlightjs.getLanguage(lang)) {
+        return highlightjs.highlight(lang, code).value
+      }
+      return highlightjs.highlightAuto(code).value
+    }
+  })
 })
 
 class App extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       value: ''
@@ -31,7 +35,7 @@ class App extends Component {
     }
   }
 
-  render() {
+  render () {
     return (
       <MarkdownEditor
         value={this.state.value}
