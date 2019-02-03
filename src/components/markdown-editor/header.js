@@ -1,17 +1,21 @@
 'use stric'
 
 import React, { PropTypes } from 'react'
+import Button from 'components/button'
 
 const MarkdownEditorHeader = ({ isSaving, handleRemove, handleCreate }) => (
   <header className='editor-header'>
-    <p className='save-message'>{isSaving ? 'Salvando...' : 'Salvo!'}</p>
-    <button onClick={handleCreate}>Criar novo</button>
-    <button onClick={handleRemove} className='button-remove'>Remover</button>
+    {isSaving !== null && <p className='save-message'>{isSaving ? 'Salvando...' : 'Salvo!'}</p>}
+    <Button
+      onClick={handleCreate}
+      kind='success'>Criar novo</Button>
+    <Button
+      onClick={handleRemove}
+      kind='danger'>Remover</Button>
   </header>
 )
 
 MarkdownEditorHeader.propTypes = {
-  isSaving: PropTypes.bool.isRequired,
   handleRemove: PropTypes.func.isRequired,
   handleCreate: PropTypes.func.isRequired
 }
