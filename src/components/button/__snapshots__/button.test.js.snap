@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should Button danger to match snapshot 1`] = `
+<button
+  className="button -danger"
+  onClick={[Function]}
+>
+  Danger
+</button>
+`;
+
+exports[`Should Button success to match snapshot 1`] = `
+<button
+  className="button -success"
+  onClick={[Function]}
+>
+  Success
+</button>
+`;
+
+exports[`Should Button to match snapshot 1`] = `
+<button
+  className="button"
+  onClick={[Function]}
+>
+  Click me
+</button>
+`;
