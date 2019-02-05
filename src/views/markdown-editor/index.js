@@ -15,11 +15,11 @@ const MarkdownEditor = ({
   ...props
 }) => (
   <section className='editor'>
-    <Header {...props} />
+    <Header {...props} handleChange={handleChange} />
     <Files files={files} handleOpenFile={handleOpenFile} />
     <textarea
       value={value}
-      onChange={handleChange}
+      onChange={handleChange('value')}
       autoFocus
       ref={textareaRef}
     />

@@ -24,7 +24,7 @@ module.exports = {
   },
 
   htmlPluginConfig: {
-    title: 'My app',
+    title: 'Markdown Editor',
     template: join(paths.src, 'html', 'template.html')
   },
 
